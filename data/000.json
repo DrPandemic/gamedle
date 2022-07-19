@@ -1,0 +1,37 @@
+{
+   "0": {
+        "solution": "ULTRAKILL",
+        "description": "Ultrakill is a first-person shooter video game developed by Arsi \"Hakita\" Patala and published by New Blood Interactive. It was released through Early Access on Steam for Microsoft Windows on September 3, 2020. The game uses retro-style graphics and movement capabilities similar to those of 1990s first-person shooters such as Quake and Doom.",
+        "descriptionSource": "https://en.wikipedia.org/wiki/Ultrakill",
+        "imageUrl": "https://cdn.cloudflare.steamstatic.com/steam/apps/1229490/ss_d058f8dc239f2d0f9c10b2abfbcf89e414981539.1920x1080.jpg?t=1645052220",
+        "buyLinks": [{
+            "url": "https://store.steampowered.com/app/1229490/ULTRAKILL/"
+        }],
+        "hints": [
+            {
+                "type": "remote-cropped",
+                "imageUrl": "https://cdn.cloudflare.steamstatic.com/steam/apps/1229490/ss_d058f8dc239f2d0f9c10b2abfbcf89e414981539.1920x1080.jpg?t=1645052220",
+                "sx": 1190,
+                "sy": 620,
+                "sWidth": 100,
+                "sHeight": 100
+            },
+            {
+                "type": "remote-cropped",
+                "imageUrl": "https://cdn.cloudflare.steamstatic.com/steam/apps/1229490/ss_d058f8dc239f2d0f9c10b2abfbcf89e414981539.1920x1080.jpg?t=1645052220",
+                "sx": 1100,
+                "sy": 600,
+                "sWidth": 200,
+                "sHeight": 200
+            },
+            {
+                "type": "remote-cropped",
+                "imageUrl": "https://cdn.cloudflare.steamstatic.com/steam/apps/1229490/ss_d058f8dc239f2d0f9c10b2abfbcf89e414981539.1920x1080.jpg?t=1645052220",
+                "sx": 950,
+                "sy": 500,
+                "sWidth": 450,
+                "sHeight": 450
+            }
+        ]
+    }
+}

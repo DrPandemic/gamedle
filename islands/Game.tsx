@@ -1,16 +1,39 @@
 /** @jsx h */
-import { Context, createContext, h, JSX } from "preact";
+/** @jsxFrag Fragment */
+import { Context, Fragment, createContext, h, JSX } from "preact";
 import { StateUpdater, useContext, useState } from "preact/hooks";
 import { tw } from "@twind";
 import Board from "./Board.tsx";
 import Search from "./Search.tsx";
+import Conclusion from "./Conclusion.tsx";
+
+export enum GameState {
+  Playing,
+  Success,
+  Failed,
+}
 
 export interface Hint {
-    image: string;
+  type: string;
+  imageUrl: string;
+  sx: number;
+  sy: number;
+  sWidth: number;
+  sHeight: number;
+}
+
+export interface BuyLink {
+  url: string;
+  text?: string;
 }
 
 export interface Challenge {
-    hints: Array<Hint>;
+  solution: string;
+  description: string;
+  descriptionSource: string;
+  imageUrl: string;
+  hints: Array<Hint>;
+  buyLinks: Array<BuyLink>;
 }
 
 export interface Attempt {
@@ -20,27 +43,47 @@ export interface Attempt {
 export interface GameContext {
   word: string;
   setWord: StateUpdater<string>;
-  currentChallenge: Challenge;
+  challenge: Challenge;
   attempts: Array<Attempt>;
   pushAttempt: (a: Attempt) => void;
+  gameState: GameState;
+  setGameState: StateUpdater<GameState>;
 }
 
-export default function Game() {
+interface GameProps {
+  challenge: Challenge;
+}
+
+export default function Game(props: GameProps) {
   const [word, setWord] = useState("");
-  const hints = [
-    { image: "https://avatars.githubusercontent.com/u/3250155?v=4" },
-    { image: "https://avatars.githubusercontent.com/u/46688056?s=200&v=4" },
-  ];
   const initialAttempts: Array<Attempt> = [];
   const [attempts, setAttempts] = useState(initialAttempts);
   const pushAttempt = (attempt: Attempt) => setAttempts([...attempts, attempt]);
+  const [gameState, setGameState] = useState(GameState.Playing);
 
-  const Game: Context<GameContext> = createContext({ word, setWord, currentChallenge: { hints }, attempts, pushAttempt });
+  // const Game: Context<GameContext> = createContext({
+  const game: GameContext = {
+    word, setWord,
+    challenge: props.challenge,
+    attempts, pushAttempt,
+    gameState, setGameState,
+  };
+
+  console.log(game.gameState);
+
+  let rendering = null;
+  if (game.gameState === GameState.Playing) {
+    rendering = <>
+      <Board game={game} />
+      <Search game={game} />
+    </>;
+  } else {
+    rendering = <Conclusion game={game}></Conclusion>
+  }
 
   return (
-    <span>
-      <Board game={Game} />
-      <Search searchTerm="" game={Game} />
-    </span>
+    <div class={tw`mx-auto pt-5 h-full max-w-2xl w-full flex flex-col`} style="height: calc(100% - 68px)">
+      {rendering}
+    </div>
   );
 }
