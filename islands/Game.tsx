@@ -69,8 +69,6 @@ export default function Game(props: GameProps) {
     gameState, setGameState,
   };
 
-  console.log(game.gameState);
-
   let rendering = null;
   if (game.gameState === GameState.Playing) {
     rendering = <>

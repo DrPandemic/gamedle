@@ -56,7 +56,7 @@ export default class Conclusion extends Component<ConclusionProps> {
 
     return (
       <div ref={this.containerRef} class={tw`mx-5`}>
-        <div class={tw`font-semibold mb-3 text-center text-3xl`}>{text}<br/>The game was {this.props.game.challenge.solution}</div>
+        <div class={tw`font-semibold text-center text-3xl`}>{text}<br/>The game was {this.props.game.challenge.solution}</div>
         <div class={tw`flex flex-row justify-center`}>
           { this.props.game.challenge.hints.slice(0, this.props.game.attempts.length).map((hint, index) =>
             <div class={tw`p-3`}>

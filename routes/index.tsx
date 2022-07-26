@@ -11,10 +11,11 @@ function today(): number {
   return Math.floor(Date.now()/8.64e7);
 }
 
+const challengeContent = await Deno.readTextFile("data/000.json");
+
 export default function Home() {
   const today = 0;
-  const challenge = JSON.parse(Deno.readTextFileSync("data/000.json"))[today.toString()] as Challenge;
-  console.log(challenge);
+  const challenge = JSON.parse(challengeContent)[today.toString()] as Challenge;
 
   return (
     <>
@@ -23,7 +24,7 @@ export default function Home() {
         <link rel="stylesheet" href={`/main.css`} />
       </Head>
       <>
-        <canvas id="background" class={tw`fixed`}></canvas>
+        <canvas id="background" class={tw`fixed`} style="z-index: -1"></canvas>
         <Topbar today={today} />
         <Game challenge={challenge}/>
       </>
