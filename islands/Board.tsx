@@ -3,7 +3,7 @@ import { Component, Context, createRef, h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
 import { tw } from "@twind";
 import { GameContext } from "./Game.tsx";
-import ImageCanvas from "./ImageCanvas.tsx";
+import ImageCanvas from "../components/ImageCanvas.tsx";
 
 interface BoardProps {
   game: GameContext;

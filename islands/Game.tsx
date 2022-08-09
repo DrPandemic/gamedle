@@ -1,7 +1,7 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
-import { Context, Fragment, createContext, h, JSX } from "preact";
-import { StateUpdater, useContext, useState } from "preact/hooks";
+import { Fragment, h } from "preact";
+import { StateUpdater, useState } from "preact/hooks";
 import { tw } from "@twind";
 import Board from "./Board.tsx";
 import Search from "./Search.tsx";
@@ -31,7 +31,6 @@ export interface Challenge {
   solution: string;
   description: string;
   descriptionSource: string;
-  imageUrl: string;
   hints: Array<Hint>;
   buyLinks: Array<BuyLink>;
 }
@@ -70,7 +69,7 @@ export default function Game(props: GameProps) {
   };
 
   let rendering = null;
-  if (game.gameState === GameState.Playing) {
+  if (game.gameState !== GameState.Playing) {
     rendering = <>
       <Board game={game} />
       <Search game={game} />

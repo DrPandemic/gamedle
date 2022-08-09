@@ -3,7 +3,7 @@
 import { Fragment, Component, Context, createRef, h } from "preact";
 import { useContext } from "preact/hooks";
 import { tw } from "@twind";
-import { Hint } from "./Game.tsx";
+import { Hint } from "../islands/Game.tsx";
 
 interface ImageCanvasProps {
   hint: Hint;
@@ -30,7 +30,7 @@ export default class ImageCanvas extends Component<ImageCanvasProps> {
     image.src = this.props.hint.imageUrl;
 
     image.onload = () => {
-      this.setState(() => ({loadedImage: image}));
+      this.setState(() => ({ loadedImage: image }));
     }
   }
 

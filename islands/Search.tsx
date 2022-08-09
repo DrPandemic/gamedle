@@ -23,6 +23,10 @@ export default function Search(props: SearchProps) {
 
   function onSubmit(e: JSX.TargetedEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (game.word === "") {
+      return;
+    }
+
     game.pushAttempt({ word: game.word });
     game.setWord("");
     setSearchTerm("");

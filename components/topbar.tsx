@@ -12,7 +12,7 @@ export default function Topbar(props: TopbarProps) {
       <div class={tw`container flex flex-wrap justify-between items-center mx-auto`}>
         <a target="_blank" href="https://github.com/DrPandemic/gamedle"><img src="information.svg" alt="information" class={tw`w-5 cursor-pointer`}></img></a>
         <span class={tw`items-center`}>
-          <a href="./" class={tw`self-center text-xl font-semibold whitespace-nowrap dark:text-white`}>Gamedle - {props.today}</a>
+          <a href="./" class={tw`self-center text-xl font-semibold whitespace-nowrap dark:text-white`}>Gamedle - #{props.today}</a>
         </span>
         <img src="color-adjust.svg" alt="information" class={tw`w-5 cursor-pointer`}></img>
       </div>
